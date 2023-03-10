@@ -13,7 +13,6 @@
 <body>
     <div class="text-center">
         <h5>Laporan Pengaduan Masyarakat</h5>
-        <h6>Ihsanfrr.githu.io</h6>
     </div>
     <div class="container">
         <table class="table">
@@ -29,7 +28,7 @@
                 @foreach ($pengaduan as $k => $v)
                     <tr>
                         <td>{{ $k += 1 }}</td>
-                        <td>{{ $v->tgl_pengaduan->format('d-M-Y') }}</td>
+                        <td>{{ $v->tgl_pengaduan}}</td>
                         <td>{{ $v->isi_laporan }}</td>
                         <td>{{ $v->status == '0' ? 'Pending' : ucwords($v->status) }}</td>
                     </tr>
