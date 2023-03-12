@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('petugas', function (Blueprint $table) {
-            $table->id('id_petugas');
+            $table->id('id_petugas'); //id_petugas
             $table->string('nama_petugas', 40);
             $table->string('username',25)->unique();
             $table->string('password');

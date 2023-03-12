@@ -1,9 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
-
-<div class="div">
-    
+<div class="container">
+    <nav>
+        <ul class="breadcrumb breadcrumb-pipe">
+            <li class="breadcrumb-item"><a href="/admin/petugas">Petugas</a></li>
+            <li class="breadcrumb-item active">Data Petugas</li>
+        </ul>
+    </nav>
 </div>
 <div class="nk-block nk-block-lg">
     <div class="nk-block-head">
@@ -14,7 +18,8 @@
     <div class="card card-bordered card-preview">
         <div class="card-inner">
             <div class="div ml-auto mb-3">
-                <a href="{{ route('petugas.create') }}" class="btn btn-dim btn-outline-primary"><em class="icon ni ni-user-add" ></em></a>
+                <a href="{{ route('petugas.create') }}" class="btn btn-dim btn-outline-primary"><em class="icon ni ni-user-add" ></em><span class="d-none d-md-inline">Tambah Petugas</span></a>
+                {{-- <a href="{{ route('petugas.create') }}" class="btn btn-primary btn-dim d-none d-sm-inline-flex" data-bs-toggle="dropdown"><em class="icon ni ni-user-add" ></em><span><span class="d-none d-md-inline">Tambah </span> Petugas</span></a> --}}
             </div>
             <table class="datatable-init-export nowrap table" data-export-title="Export">
                 <thead>

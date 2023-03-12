@@ -9,8 +9,9 @@
     <meta name="description" content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
+
     <!-- Page Title  -->
-    <title>Laporan Masyarakat</title>
+    <title>Login Masyarakat</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="./assets2/css/dashlite.css?ver=3.1.2">
     <link id="skin-default" rel="stylesheet" href="./assets2/css/theme.css?ver=3.1.2">
@@ -34,10 +35,10 @@
                         <div class="card card-bordered" style="margin-left: ">
                             <div class="card-inner card-inner-lg">
                                 <div class="nk-block-head">
-                                    <div class="nk-block-head-content">
-                                        <h4 class="nk-block-title" style="font-family: 'Poppins', sans-serif;">Sign-In</h4>
+                                    <div class="nk-block-head-content text-center">
+                                        <h4 class="nk-block-title " style="font-family: 'Poppins', sans-serif;">Login</h4>
                                         <div class="nk-block-des">
-                                            <p>Access the Dashlite panel using your email and passcode.</p>
+                                            <p>Silakan login terlebih dahulu jika ingin melakukan pengaduan laporan.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -45,7 +46,7 @@
                                     @csrf
                                     <div class="form-group">
                                         <div class="form-group">
-                                            <label for="username">Username atau Email</label>
+                                            <label for="username">Username</label>
                                             <input type="text" name="username" id="username" class="form-control">
                                         </div>
                                         <div class="form-group">
@@ -54,7 +55,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-lg btn-primary btn-block">Sign in</button>
+                                        <button class="btn btn-lg btn-primary btn-block">Log in</button>
                                     </div>
                                 </form>
                                 @if (Session::has('pesan'))
@@ -62,15 +63,8 @@
                                     {{ Session::get('pesan') }}
                                 </div>
                                 @endif
-                                <div class="form-note-s2 text-center pt-4"> New on our platform? <a href="/register">Create an account</a>
-                                </div>
-                                <div class="text-center pt-4 pb-3">
-                                    <h6 class="overline-title overline-title-sap"><span>OR</span></h6>
-                                </div>
-                                <ul class="nav justify-center gx-4">
-                                    <li class="nav-item"><a class="nav-link" href="#">Facebook</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#">Google</a></li>
-                                </ul>
+                                <div class="form-note-s2 text-center pt-4"> Belum punya akun? <a href="/register">Buat sebuah akun</a>
+                                </div>                          
                             </div>
                         </div>
                     </div>

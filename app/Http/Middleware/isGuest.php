@@ -20,10 +20,9 @@ class isGuest
     {
         if (Auth::guard('admin')->check()) {
             // jika tidak ada admin yang sedang login 
-            return $next($request);
+            abort(403);
         }
+        return $next($request);
         // jika ada yang login
-        redirect()->route('dashboard.index');
-        
     }
 }

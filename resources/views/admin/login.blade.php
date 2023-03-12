@@ -40,13 +40,14 @@
                                     <div class="nk-block-head-content text-center">
                                         <h4 class="nk-block-title" style="font-family: 'Poppins', sans-serif;" >LOGIN PETUGAS</h4>
                                         <div class="nk-block-des">
-                                            <p>Lorem ipsum dolor sit amet.</p>
+                                            <p>Masukan Username dan Pasword untuk petugas</p>
                                         </div>
                                     </div>
                                 </div>
                                 <form action="{{ route('admin.login') }}" method="POST">
                                     @csrf
                                     <div class="form-group">
+                                        <label for="username">Username</label>
                                         <input type="text" value="{{ old('username') }}" name="username"
                                             placeholder="Username"
                                             class="form-control @error('username') is-invalid @enderror">
@@ -57,6 +58,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
+                                        <label for="username">Password</label>
                                         <input type="password" name="password" placeholder="Password"
                                             class="form-control @error('password') is-invalid @enderror">
                                         @error('password')
@@ -75,16 +77,7 @@
                                         {{ Session::get('pesan') }}
                                     </div>
                                     @endif
-                                <div class="form-note-s2 text-center pt-4"> Already have an account? <a
-                                        href="/login"><strong>Sign in instead</strong></a>
-                                </div>
-                                <div class="text-center pt-4 pb-3">
-                                    <h6 class="overline-title overline-title-sap"><span>OR</span></h6>
-                                </div>
-                                <ul class="nav justify-center gx-8">
-                                    <li class="nav-item"><a class="nav-link" href="#">Facebook</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#">Google</a></li>
-                                </ul>
+                               
                             </div>
                         </div>
                     </div>

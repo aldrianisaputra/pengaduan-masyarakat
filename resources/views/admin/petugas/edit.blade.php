@@ -14,7 +14,7 @@
 </div>
 <div class="card card-bordered mt-4">
     <div class="card-inner">
-        <form action="{{ route('petugas.update', $petugas->id_petugas) }} " method="POST"
+        <form action="{{ route('petugas.update', $petugas->id_petugas) }}" method="POST"
             class="form-validate is-alter">
             @csrf
             @method('PATCH')
@@ -78,16 +78,20 @@
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <button type="submit" class="btn btn-lg btn-warning">Update</button>
-                        <form action="{{ route('petugas.destroy', $petugas->id_petugas) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-lg btn-danger">Hapus</button>
-                        </form>
+                        <button type="submit" class="btn btn-lg btn-warning" > <em class="icon ni ni-edit-fill"></em>Update</button>
                     </div>
                 </div>
             </div>
         </form>
+
+        
+        @if ($petugas->id_petugas != 1)
+        <form action="{{ route('petugas.destroy', $petugas->id_petugas) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-lg btn-danger mt-1"onclick="return confirm('Yakin Menghapus?')"><em class="icon ni ni-trash-fill"></em>Hapus</button>
+        </form>
+        @endif
         
     </div>
 </div>

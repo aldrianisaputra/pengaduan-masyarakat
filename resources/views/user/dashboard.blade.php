@@ -33,7 +33,7 @@
                                             <div class="alert alert-{{ Session::get('type') }}">{{ Session::get('pengaduan') }}</div>
                                             @endif
 
-                                            <h5 style="font-family: 'Poppins', sans-serif;">Isi Pengaduan</h5>
+                                            <h5 style="font-family: 'Poppins', sans-serif;" class="text-center">Isi Pengaduan</h5>
                                             <hr>
                                             <form action="{{ route('lapmas.store') }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
@@ -52,7 +52,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
-                                                        <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                                        <button class="btn btn-primary w-100 py-3" type="submit">Kirim Pengaduan</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -76,40 +76,29 @@
                                                         <a style="color: #6a70fc"
                                                             href="#">{{ Auth::guard('masyarakat')->user()->nama }}</a>
                                                     </h5>
-                                                    <p class="text-dark">{{ Auth::guard('masyarakat')->user()->nik }}</p>
+                                                    <p class="text-dark">{{ Auth::guard('masyarakat')->user()->username }}</p>
                                                 </div>
                                                 <div class="row text-center">
                                                     <div class="col">
-                                                        <p class="italic mb-0">Terverifikasi</p>
+                                                        <p class="italic mb-0">NIK : </p>
                                                         <div class="text-center">
-                                                            {{-- {{ $hitung[0] }} --}}
+                                                            <p class="text-dark">{{ Auth::guard('masyarakat')->user()->nik }}</p>
                                                         </div>
                                                     </div>
                                                     <div class="col">
-                                                        <p class="italic mb-0">Proses</p>
+                                                        <p class="italic mb-0">No Telepon :</p>
                                                         <div class="text-center">
-                                                            {{-- {{ $hitung[1] }} --}}
-                                                        </div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <p class="italic mb-0">Selesai</p>
-                                                        <div class="text-center">
-                                                            {{-- {{ $hitung[2] }} --}}
+                                                            <p class="text-dark">{{ Auth::guard('masyarakat')->user()->telp }}</p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="d-flex">
-                                            <a class="service-btn" href="">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-            
                     </div>
                 </div>
             </div>

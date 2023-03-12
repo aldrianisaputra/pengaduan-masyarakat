@@ -32,11 +32,17 @@ Route::middleware(['isMasyarakat'])->group(function () {
     // isi pengaduan laporan 
     Route::get('/pengaduan/{siapa?}', [UserController::class, 'pengaduan'])->name('lapmas.pengaduan');
 
+    // detail
+    Route::get('/detail/{id_pengaduan}', [UserController::class, 'detail'])->name('lapmas.detail');
+
     // storee 
     Route::post('/store', [UserController::class, 'storePengaduan'])->name('lapmas.store');
 
     // loguout
     Route::get('/logout', [UserController::class, 'logout'])->name('lapmas.logout');
+
+    // about
+    Route::get('/about', [UserController::class, 'about'])->name('lapmas.about');
 });
 
 Route::middleware(['guest'])->group(function () {

@@ -3,17 +3,19 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Lapmas!</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>LaporKuy!</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="assets/img/favicon.ico" rel="icon">
+    <link rel="shortcut icon" href="./images/favicon.png">
+
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Poppins:wght@500&display=swap"
+        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -28,6 +30,12 @@
 
     <!-- Template Stylesheet -->
     <link href="../assets/css/style.css" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+        
+    </style>
 </head>
 
 <body>
@@ -46,7 +54,7 @@
         <div class="container-xxl position-relative p-0" style="font-family: 'Poppins', sans-serif;">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="index.html" class="navbar-brand p-0">
-                    <h1 class="m-0"></h1>
+                    <h2 class="m-0"style="font-family: 'Poppins', sans-serif;">LaporKuy!</h2>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -57,26 +65,28 @@
                         @if(Auth::guard('masyarakat')->check())
                         <div class="collapse navbar-collapse" id="navbarCollapse">
                             <div class="navbar-nav ms-auto py-0">
-                                <a href="{{ route('lapmas.dashboard') }}" class="nav-item nav-link ">Home</a>
+                                <a href="{{ route('lapmas.dashboard') }}" class="nav-item nav-link ">Beranda</a>
                                 <a href="{{ route('lapmas.pengaduan', 'me') }}" class="nav-item nav-link">Laporan</a>
-                                <a href="service.html" class="nav-item nav-link">Service</a>
-                                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                                <a href="{{ route('lapmas.about') }}" class="nav-item nav-link">Tentang Kami</a>
+                                
                             </div>
                             <a href="{{ route('lapmas.logout') }}"
                                 class="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5">LOG OUT
-                            </a>    
+                            </a>
                         </div>
+                        
                         </ul>
                         @else
                         <div class="collapse navbar-collapse" id="navbarCollapse">
                             <div class="navbar-nav ms-auto py-0">
                                 <a href="/" class="nav-item nav-link ">Home</a>
                                 <a href="#tatacara" class="nav-item nav-link">Tata Cara</a>
+                                <a href="#about" class="nav-item nav-link">Tentang Kami</a>
                             </div>
                             <a href="{{ route('lapmas.formLogin') }}"
-                            class="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5">Log In</a>
+                                class="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5">Log In</a>
                         </div>
-                        @endauth                        
+                        @endauth
                     </div>
                 </div>
             </nav>
@@ -86,17 +96,21 @@
                     <div class="row g-5 align-items-center">
                         @if(Auth::guard('masyarakat')->check())
                         <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="text-white mb-4 animated zoomIn">Welcome {{ Auth::guard('masyarakat')->user()->nama }}!</h1>
-                            <p class="text-white pb-3 animated zoomIn">Silahkan Isi Pengaduan Anda</p>
+                            <h1 class="text-white mb-4 animated zoomIn" style="     font-family: 'Poppins', sans-serif;">Halooo 
+                                {{ Auth::guard('masyarakat')->user()->nama }}👋🏻</h1>
+                            <p class="text-white pb-3 animated zoomIn">Ada yang bisa kami bantu? Jika ada, Silahkan melakukan pengisian pengaduan terlebih dahulu.</p>
                             <a href="#isipengaduan"
-                                class="btn btn-outline-light rounded-pill border-2 py-3 px-5 animated slideInRight">Isi Pengaduan</a>
+                                class="btn btn-outline-light rounded-pill border-2 py-3 px-5 animated slideInRight">Isi
+                                Pengaduan</a>
                         </div>
                         <div class="col-lg-6 text-center text-lg-start">
                             <img class="img-fluid animated zoomIn" src="../assets/img/heroo.png" alt="">
                         </div>
                         @else
                         <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="text-white mb-4 animated zoomIn" style="font-family: 'Poppins', sans-serif; font-size:50px ">Layanan Pengaduan Online Masyarakat</h1>
+                            <h1 class="text-white mb-4 animated zoomIn"
+                                style="font-family: 'Poppins', sans-serif; font-size:50px ">Layanan Pengaduan Online
+                                Masyarakat</h1>
                             <p class="text-white pb-3 animated zoomIn">Sampaikan laporan masalah Anda di sini, kami akan
                                 memprosesnya dengan cepat.</p>
                             <a href="{{ route('lapmas.formRegister') }}"
@@ -145,6 +159,17 @@
 
     <!-- Template Javascript -->
     <script src="../assets/js/main.js"></script>
+
+    <script>
+        // jquerynya
+        $(document).on('ajaxComplete ready', function () {
+            $('.modalMd').off('click').on('click', function () {
+                $('#modalMdContent').load($(this).attr('value'));
+                $('#modalMdTitle').html($(this).attr('title'));
+            });
+        });
+
+    </script>
 </body>
 
 </html>

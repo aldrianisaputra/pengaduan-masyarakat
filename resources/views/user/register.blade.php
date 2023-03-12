@@ -11,7 +11,7 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
-    <title>Register | DashLite Admin Template</title>
+    <title>Register Masyarakat</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="./assets2/css/dashlite.css?ver=3.1.2">
     <link id="skin-default" rel="stylesheet" href="./assets2/css/theme.css?ver=3.1.2">
@@ -40,7 +40,7 @@
                                     <div class="nk-block-head-content text-center">
                                         <h4 class="nk-block-title" style="font-family: 'Poppins', sans-serif;" >Register</h4>
                                         <div class="nk-block-des">
-                                            <p>Create New Dashlite Account</p>
+                                            <p>Buat Akun Pengaduan Baru</p>
                                         </div>
                                     </div>
                                 </div>
@@ -112,16 +112,10 @@
                                         {{ Session::get('pesan') }}
                                     </div>
                                     @endif
-                                <div class="form-note-s2 text-center pt-4"> Already have an account? <a
-                                        href="/login"><strong>Sign in instead</strong></a>
+                                <div class="form-note-s2 text-center pt-4"> Sudah memiliki akun? <a
+                                        href="/login"><strong>Login</strong></a>
                                 </div>
-                                <div class="text-center pt-4 pb-3">
-                                    <h6 class="overline-title overline-title-sap"><span>OR</span></h6>
-                                </div>
-                                <ul class="nav justify-center gx-8">
-                                    <li class="nav-item"><a class="nav-link" href="#">Facebook</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#">Google</a></li>
-                                </ul>
+                               
                             </div>
                         </div>
                     </div>

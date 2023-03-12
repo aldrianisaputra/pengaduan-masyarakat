@@ -3,13 +3,19 @@
 @section('Data Pengaduan')
 
 @section('content')
+
+<div class="container">
+    <nav>
+        <ul class="breadcrumb breadcrumb-pipe">
+            <li class="breadcrumb-item"><a href="/admin/pengaduan">Pengaduan</a></li>
+            <li class="breadcrumb-item active">Data Pengaduan</li>
+        </ul>
+    </nav>
+</div>
 <div class="nk-block nk-block-lg">
     <div class="nk-block-head">
         <div class="nk-block-head-content">
-            <h4 class="nk-block-title">Data Table with Export</h4>
-            {{-- <div class="nk-block-des">
-                <p>To intialize datatable with export buttons, use <code class="code-class">.datatable-init-export</code> with <code>table</code> element. <br> <strong class="text-dark">Please Note</strong> By default export libraries is not added globally, so please include <code class="code-class">"js/libs/datatable-btns.js"</code> into your page to active export buttons.</p>
-            </div> --}}
+         
         </div>
     </div>
     <div class="card card-bordered card-preview">

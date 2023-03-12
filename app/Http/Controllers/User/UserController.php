@@ -5,8 +5,10 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Masyarakat;
 use App\Models\Pengaduan;
+use App\Models\tanggapan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -116,10 +118,9 @@ class UserController extends Controller
         }
 
         date_default_timezone_set('Asia/Bangkok');
-
         $pengaduan = Pengaduan::create([
             'tgl_pengaduan' => date('Y-m-d h:i:s'),
-            'nik' => Auth::guard('masyarakat')->user()->nik,
+            'nik' => strval(Auth::guard('masyarakat')->user()->nik),
             'isi_laporan' => $data['isi_laporan'],
             'foto' => $data['foto'] ?? '',
             'status' => '0',
@@ -137,6 +138,7 @@ class UserController extends Controller
 
     public function pengaduan($siapa = '')
     {
+    
         $terverifikasi = Pengaduan::where([['nik', Auth::guard('masyarakat')->user()->nik], ['status', '!=', '0']])->get()->count();
         $proses = Pengaduan::where([['nik', Auth::guard('masyarakat')->user()->nik], ['status', 'proses']])->get()->count();
         $selesai = Pengaduan::where([['nik', Auth::guard('masyarakat')->user()->nik], ['status', 'selesai']])->get()->count();
@@ -151,25 +153,28 @@ class UserController extends Controller
             $pengaduan = Pengaduan::where([['nik', '!=', Auth::guard('masyarakat')->user()->nik], ['status', '!=', '0']])->orderBy('tgl_pengaduan', 'desc')->get();
 
             return view('user.pengaduan', ['pengaduan' => $pengaduan, 'hitung' => $hitung, 'siapa' => $siapa]);
-        }
+        }        
 
+        
+    
+    }
+    
+    public function detail($id_pengaduan)
+    {
+        $pengaduan = pengaduan::where('id_pengaduan',$id_pengaduan)->first();
+        $tanggapan = tanggapan::where('id_pengaduan',$id_pengaduan)->first();
+
+        return view('user.detail', ['pengaduan'=>$pengaduan, 'tanggapan'=>$tanggapan]);
+        // return view('user.detail');
 
         
     }
 
-    // public function __construct(Pengaduan $detail)
-    // {
-    //     $this->detail = $detail;
-        
-    // }
-
-    // // public function tampilan(){
-    // //     // $data = SelfCare::all();
-    // //     // // dd($data);
-
-    // //     $catper = $this->detail->with('user')->get();
-    // //     return view('dataperjalanan', compact('catper'));
-    // // }
+    // about us
+    public function about()
+    {
+        return view('user.about');
+    }
 
    
 

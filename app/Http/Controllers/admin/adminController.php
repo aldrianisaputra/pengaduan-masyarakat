@@ -12,6 +12,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 class adminController extends Controller
 {
     public function formLogin(){
+        // dd('ok');
         return view('admin.login');
     }
 

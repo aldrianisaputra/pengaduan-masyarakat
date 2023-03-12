@@ -1,11 +1,17 @@
 @extends('layouts.admin')
 
 @section('content')
+<div class="container">
+    <nav>
+        <ul class="breadcrumb breadcrumb-pipe">
+            <li class="breadcrumb-item"><a href="/admin/masyarakat">Masyarakat</a></li>
+            <li class="breadcrumb-item active">Data Masyarakat</li>
+        </ul>
+    </nav>
+</div>
 <div class="nk-block nk-block-lg">
     <div class="nk-block-head">
-        <div class="nk-block-head-content">
-            <h4 class="nk-block-title">Data Table with Export</h4>
-        </div>
+        
     </div>
     <div class="card card-bordered card-preview">
         <div class="card-inner">

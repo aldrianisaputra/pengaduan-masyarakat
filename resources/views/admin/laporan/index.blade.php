@@ -1,6 +1,15 @@
 @extends('layouts.admin')
 
 @section('content')
+
+<div class="container">
+    <nav>
+        <ul class="breadcrumb breadcrumb-pipe">
+            <li class="breadcrumb-item"><a href="/admin/laporan">Laporan</a></li>
+            <li class="breadcrumb-item active">Data Laporan</li>
+        </ul>
+    </nav>
+</div>
 <div class="row mt-3 ">
     <div class="col-lg-4 col-12">
         <div class="card card-bordered">
@@ -26,28 +35,32 @@
             <div class="card-inner">
                 <h5 class="card-title text-center">Data Berdasarkan Tanggal</h5>
                 <div class="float-right">
-                    @if ($pengaduan ?? '')
-                        <a href="{{ route('laporan.cetakLaporan', ['from' => $from, 'to' => $to]) }}" class="btn btn-danger">EXPORT PDF</a>
+                    @if ($tanggapan ?? '')
+                        <a href="{{ route('laporan.cetakLaporan', ['from' => $from, 'to' => $to]) }}" class="btn btn-dim btn-outline-primary" ><em class="icon ni ni-download-cloud"></em><span class="d-none d-md-inline">Download PDF</span></a>
                     @endif
                 </div>
                <div class="card-body">
                 <div class="card-body">
-                    @if ($pengaduan ?? '')
+                    @if ($tanggapan ?? '')
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>Tanggal</th>
                                     <th>Isi Laporan</th>
+                                    <th>Tanggapan</th>
+                                    <th>Nama Petugas</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($pengaduan as $k => $v)
+                                @foreach ($tanggapan as $k => $v)
                                     <tr>
                                         <td>{{ $k += 1 }}</td>
                                         <td>{{ $v->tgl_pengaduan }}</td>
                                         <td>{{ $v->isi_laporan }}</td>
+                                        <td>{{ $v->tanggapan }}</td>
+                                        <td>{{ $v->nama_petugas }}</td>
                                         <td>
                                             @if($v->status == '0')
                                             <a href="#" class="badge badge-dot bg-danger">Pending</a>

@@ -9,32 +9,50 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
     <title>Laporan Pengaduan</title>
+
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+        @page{
+            margin: 50px;
+        }
+        th{
+            /* font-size: 50px */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+    </style>
 </head>
 <body>
+    {{-- <img class="img-fluid mb-4 " src="assets/img/done (2).png" alt="" > --}}
     <div class="text-center">
-        <h5>Laporan Pengaduan Masyarakat</h5>
+        <h3 style="font-family: 'Poppins', sans-serif;">Laporan Pengaduan Masyarakat</h3>
+        <h6 style="font-family: 'Poppins', sans-serif;" class="mb-5">by Adminstrator</h6>
+        
     </div>
-    <div class="container">
-        <table class="table">
-            <thead>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="font-family: 'Poppins', sans-serif;">No</th>
+                <th>Tanggal</th>
+                <th>Isi Laporan</th>
+                <th>Tanggapan</th>
+                <th>Nama Petugas</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($tanggapan as $k => $v)
                 <tr>
-                    <th>No</th>
-                    <th>Tanggal</th>
-                    <th>Isi Laporan</th>
-                    <th>Status</th>
+                    <td>{{ $k += 1 }}</td>
+                    <td>{{ $v->tgl_pengaduan}}</td>
+                    <td>{{ $v->isi_laporan }}</td>
+                    <td>{{ $v->tanggapan }}</td>
+                    <td>{{ $v->nama_petugas }}</td>
+                    <td>{{ $v->status == '0' ? 'Pending' : ucwords($v->status) }}</td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach ($pengaduan as $k => $v)
-                    <tr>
-                        <td>{{ $k += 1 }}</td>
-                        <td>{{ $v->tgl_pengaduan}}</td>
-                        <td>{{ $v->isi_laporan }}</td>
-                        <td>{{ $v->status == '0' ? 'Pending' : ucwords($v->status) }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+            @endforeach
+        </tbody>
+      </table>
 </body>
 </html>
